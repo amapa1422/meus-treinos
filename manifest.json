@@ -1,9 +1,12 @@
-{
-    "name": "Meus Treinos",
-    "short_name": "Treinos",
-    "description": "Controle pessoal de treinos de academia",
-    "start_url": "./",
-    "display": "standalone",
-    "background_color": "#080c11",
-    "theme_color": "#090d12"
+﻿{
+  "name": "Meus Treinos",
+  "short_name": "Treinos",
+  "description": "Aplicativo pessoal para organizar treinos, cargas e evolução na academia.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080c11",
+  "theme_color": "#080c11",
+  "lang": "pt-BR"
 }

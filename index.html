@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -10,7 +10,9 @@
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     >
 
-    <meta name="theme-color" content="#090d12">
+    <meta name="theme-color" content="#080c11">
+
+    <!-- PWA / iPhone -->
 
     <meta
         name="apple-mobile-web-app-capable"
@@ -27,7 +29,9 @@
         content="Meus Treinos"
     >
 
+
     <title>Meus Treinos</title>
+
 
     <link
         rel="manifest"
@@ -42,202 +46,542 @@
 </head>
 
 
+
 <body>
 
 
-<!-- LOGIN -->
+<!-- =====================================================
+     TELA DE LOGIN
+===================================================== -->
 
-<div
+<section
     id="telaLogin"
     class="tela-login"
 >
 
-    <div class="login-box">
+    <div class="login-card">
+
 
         <div class="login-logo">
             🏋️
         </div>
 
-        <h1>Meus Treinos</h1>
+
+        <h1>
+            Meus Treinos
+        </h1>
+
 
         <p>
-            Organize seus treinos e acompanhe
-            sua evolução.
+            Seus treinos, cargas e evolução
+            em um só lugar.
         </p>
+
 
         <form id="formLogin">
 
-            <input
-                type="email"
-                id="emailLogin"
-                placeholder="Seu e-mail"
-                autocomplete="email"
-                required
-            >
 
-            <input
-                type="password"
-                id="senhaLogin"
-                placeholder="Sua senha"
-                autocomplete="current-password"
-                minlength="6"
-                required
-            >
+            <label>
 
-            <button type="submit">
+                E-mail
+
+                <input
+                    type="email"
+                    id="emailLogin"
+                    placeholder="seu@email.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                Senha
+
+                <input
+                    type="password"
+                    id="senhaLogin"
+                    placeholder="••••••••"
+                    autocomplete="current-password"
+                    minlength="6"
+                    required
+                >
+
+            </label>
+
+
+            <button
+                type="submit"
+                class="btn-primary"
+                id="btnEntrar"
+            >
                 Entrar
             </button>
 
+
         </form>
+
 
         <button
             type="button"
             id="btnCriarConta"
-            class="btn-secundario"
+            class="btn-secondary btn-full"
         >
             Criar nova conta
         </button>
+
 
         <p
             id="mensagemLogin"
             class="mensagem-login"
         ></p>
 
+
     </div>
 
-</div>
+</section>
 
 
 
-<!-- APP -->
+<!-- =====================================================
+     APLICATIVO
+===================================================== -->
 
 <div
     id="aplicativo"
-    style="display:none;"
+    class="app"
+    hidden
 >
 
 
-    <header>
+    <!-- =================================================
+         HEADER
+    ================================================== -->
 
-        <div>
-
-            <p class="subtitulo">
-                Academia
-            </p>
-
-            <h1>
-                Meus Treinos
-            </h1>
-
-        </div>
+    <header class="app-header">
 
 
-        <div class="acoes-header">
+        <div class="marca">
 
-            <button
-                id="btnSair"
-                class="botao-header"
-            >
-                Sair
-            </button>
 
-            <button
-                id="btnNovoTreino"
-                class="botao-header destaque"
-            >
-                + Treino
-            </button>
+            <div class="marca-icone">
+                🏋️
+            </div>
+
+
+            <div>
+
+                <span class="marca-legenda">
+                    ACADEMIA
+                </span>
+
+                <h1>
+                    Meus Treinos
+                </h1>
+
+            </div>
+
 
         </div>
+
+
+        <button
+            type="button"
+            id="btnSair"
+            class="btn-header"
+        >
+            Sair
+        </button>
+
 
     </header>
 
 
 
-    <main>
+    <!-- =================================================
+         ÁREA PRINCIPAL
+    ================================================== -->
+
+    <main class="app-main">
 
 
-        <!-- DESTAQUE -->
+        <!-- =============================================
+             PÁGINA INÍCIO
+        ============================================== -->
 
-        <section class="hero">
-
-            <span class="hero-label">
-                SEUS TREINOS
-            </span>
-
-            <h2>
-                Pronto para treinar?
-            </h2>
-
-            <p>
-                Monte sua ficha e acompanhe
-                suas cargas ao longo do tempo.
-            </p>
-
-        </section>
+        <section
+            id="paginaInicio"
+            class="pagina ativa"
+        >
 
 
-
-        <!-- RESUMO -->
-
-        <section class="resumo">
-
-            <div class="card-resumo">
+            <div class="saudacao">
 
                 <span>
-                    Treinos cadastrados
+                    VISÃO GERAL
                 </span>
-
-                <strong id="totalTreinos">
-                    0
-                </strong>
-
-            </div>
-
-
-            <div class="card-resumo">
-
-                <span>
-                    Exercícios
-                </span>
-
-                <strong id="totalExercicios">
-                    0
-                </strong>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- TREINOS -->
-
-        <section class="titulo-secao">
-
-            <div>
 
                 <h2>
-                    Meus treinos
+                    Pronto para treinar?
                 </h2>
 
                 <p>
-                    Suas fichas de academia
+                    Acompanhe seus treinos e continue
+                    evoluindo suas cargas.
                 </p>
 
             </div>
 
+
+
+            <!-- RESUMO -->
+
+            <div class="resumo-grid">
+
+
+                <article class="card-resumo">
+
+                    <span>
+                        Treinos
+                    </span>
+
+                    <strong id="resumoTreinos">
+                        0
+                    </strong>
+
+                </article>
+
+
+                <article class="card-resumo">
+
+                    <span>
+                        Exercícios
+                    </span>
+
+                    <strong id="resumoExercicios">
+                        0
+                    </strong>
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- PRÓXIMO TREINO -->
+
+            <div class="secao-header">
+
+                <div>
+
+                    <span class="secao-legenda">
+                        CONTINUAR
+                    </span>
+
+                    <h2>
+                        Seus treinos
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="btnNovoTreinoInicio"
+                    class="btn-small"
+                >
+                    + Novo
+                </button>
+
+            </div>
+
+
+            <div
+                id="listaTreinosInicio"
+                class="lista-treinos"
+            >
+
+                <div class="estado-carregamento">
+
+                    <div class="spinner"></div>
+
+                    <p>
+                        Carregando treinos...
+                    </p>
+
+                </div>
+
+            </div>
+
+
         </section>
 
 
-        <section id="listaTreinos">
 
-            <div class="vazio">
+        <!-- =============================================
+             PÁGINA TREINOS
+        ============================================== -->
 
-                Você ainda não cadastrou
-                nenhum treino.
+        <section
+            id="paginaTreinos"
+            class="pagina"
+        >
+
+
+            <div class="pagina-cabecalho">
+
+
+                <div>
+
+                    <span class="secao-legenda">
+                        FICHAS
+                    </span>
+
+                    <h2>
+                        Meus treinos
+                    </h2>
+
+                    <p>
+                        Escolha um treino para visualizar
+                        ou editar.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="btnNovoTreino"
+                    class="btn-primary btn-auto"
+                >
+                    + Treino
+                </button>
+
 
             </div>
+
+
+            <div
+                id="listaTreinos"
+                class="lista-treinos"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =============================================
+             DETALHE DO TREINO
+        ============================================== -->
+
+        <section
+            id="paginaDetalheTreino"
+            class="pagina"
+        >
+
+
+            <button
+                type="button"
+                id="btnVoltarTreinos"
+                class="btn-voltar"
+            >
+                ← Voltar
+            </button>
+
+
+
+            <div class="detalhe-topo">
+
+
+                <div>
+
+                    <span
+                        id="detalheTreinoCodigo"
+                        class="secao-legenda"
+                    >
+                        TREINO
+                    </span>
+
+
+                    <h2 id="detalheTreinoNome">
+                        Treino
+                    </h2>
+
+
+                    <p id="detalheTreinoFoco">
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="btnEditarTreino"
+                    class="btn-secondary"
+                >
+                    Editar
+                </button>
+
+
+            </div>
+
+
+
+            <button
+                type="button"
+                id="btnIniciarTreino"
+                class="btn-primary btn-iniciar"
+            >
+                ▶ Iniciar treino
+            </button>
+
+
+
+            <div class="secao-header">
+
+
+                <div>
+
+                    <span class="secao-legenda">
+                        EXERCÍCIOS
+                    </span>
+
+                    <h2>
+                        Cargas
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="btnAdicionarExercicioDetalhe"
+                    class="btn-small"
+                >
+                    + Exercício
+                </button>
+
+
+            </div>
+
+
+
+            <div
+                id="listaExerciciosDetalhe"
+                class="lista-exercicios"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =============================================
+             PÁGINA PROGRESSO
+        ============================================== -->
+
+        <section
+            id="paginaProgresso"
+            class="pagina"
+        >
+
+
+            <div class="pagina-cabecalho">
+
+                <div>
+
+                    <span class="secao-legenda">
+                        EVOLUÇÃO
+                    </span>
+
+                    <h2>
+                        Progresso
+                    </h2>
+
+                    <p>
+                        A evolução das suas cargas aparecerá
+                        aqui conforme você treinar.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="estado-vazio">
+
+                <div class="estado-vazio-icone">
+                    📈
+                </div>
+
+                <h3>
+                    Progresso
+                </h3>
+
+                <p>
+                    Essa área será ativada quando adicionarmos
+                    o histórico de treinos.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =============================================
+             PÁGINA HISTÓRICO
+        ============================================== -->
+
+        <section
+            id="paginaHistorico"
+            class="pagina"
+        >
+
+
+            <div class="pagina-cabecalho">
+
+                <div>
+
+                    <span class="secao-legenda">
+                        ATIVIDADE
+                    </span>
+
+                    <h2>
+                        Histórico
+                    </h2>
+
+                    <p>
+                        Seus treinos finalizados aparecerão aqui.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="estado-vazio">
+
+                <div class="estado-vazio-icone">
+                    🕘
+                </div>
+
+                <h3>
+                    Nenhum treino finalizado
+                </h3>
+
+                <p>
+                    Vamos adicionar essa função depois que
+                    a base estiver funcionando perfeitamente.
+                </p>
+
+            </div>
+
 
         </section>
 
@@ -246,121 +590,468 @@
 
 
 
-    <!-- MODAL NOVO TREINO -->
+    <!-- =================================================
+         NAVEGAÇÃO INFERIOR
+    ================================================== -->
 
-    <div
-        id="modalTreino"
-        class="modal"
-    >
-
-        <div class="modal-conteudo">
+    <nav class="bottom-nav">
 
 
-            <div class="modal-topo">
+        <button
+            type="button"
+            class="nav-item ativo"
+            data-pagina="inicio"
+        >
 
-                <div>
+            <span class="nav-icone">
+                ⌂
+            </span>
 
-                    <p class="modal-subtitulo">
-                        NOVA FICHA
-                    </p>
+            <span>
+                Início
+            </span>
 
-                    <h2>
-                        Criar treino
-                    </h2>
-
-                </div>
+        </button>
 
 
-                <button
-                    class="fechar"
-                    id="fecharModalTreino"
-                >
-                    ×
-                </button>
+
+        <button
+            type="button"
+            class="nav-item"
+            data-pagina="treinos"
+        >
+
+            <span class="nav-icone">
+                🏋
+            </span>
+
+            <span>
+                Treinos
+            </span>
+
+        </button>
+
+
+
+        <button
+            type="button"
+            class="nav-item"
+            data-pagina="progresso"
+        >
+
+            <span class="nav-icone">
+                ↗
+            </span>
+
+            <span>
+                Progresso
+            </span>
+
+        </button>
+
+
+
+        <button
+            type="button"
+            class="nav-item"
+            data-pagina="historico"
+        >
+
+            <span class="nav-icone">
+                ↶
+            </span>
+
+            <span>
+                Histórico
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL NOVO / EDITAR TREINO
+===================================================== -->
+
+<div
+    id="modalTreino"
+    class="modal"
+    hidden
+>
+
+
+    <div class="modal-overlay" data-fechar-modal="treino"></div>
+
+
+    <div class="modal-card">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <span class="secao-legenda">
+                    FICHA
+                </span>
+
+                <h2 id="tituloModalTreino">
+                    Novo treino
+                </h2>
 
             </div>
 
 
-            <form id="formTreino">
+            <button
+                type="button"
+                class="btn-fechar"
+                data-fechar-modal="treino"
+            >
+                ×
+            </button>
 
 
-                <label>
-
-                    Nome do treino
-
-                    <input
-                        type="text"
-                        id="nomeTreino"
-                        placeholder="Ex: Treino A"
-                        maxlength="40"
-                        required
-                    >
-
-                </label>
-
-
-                <label>
-
-                    Foco do treino
-
-                    <input
-                        type="text"
-                        id="focoTreino"
-                        placeholder="Ex: Peito, ombro e tríceps"
-                        maxlength="80"
-                        required
-                    >
-
-                </label>
+        </div>
 
 
 
-                <div class="cabecalho-exercicios">
-
-                    <div>
-
-                        <h3>
-                            Exercícios
-                        </h3>
-
-                        <p>
-                            Monte sua ficha
-                        </p>
-
-                    </div>
+        <form id="formTreino">
 
 
-                    <button
-                        type="button"
-                        id="btnAdicionarExercicio"
-                    >
-                        + Exercício
-                    </button>
-
-                </div>
+            <input
+                type="hidden"
+                id="treinoId"
+            >
 
 
-                <div id="listaExerciciosForm">
-                </div>
+            <label>
+
+                Nome do treino
+
+                <input
+                    type="text"
+                    id="nomeTreino"
+                    placeholder="Ex: Treino A"
+                    maxlength="40"
+                    required
+                >
+
+            </label>
+
+
+
+            <label>
+
+                Foco
+
+                <input
+                    type="text"
+                    id="focoTreino"
+                    placeholder="Ex: Peito e tríceps"
+                    maxlength="80"
+                    required
+                >
+
+            </label>
+
+
+
+            <div class="modal-acoes">
+
+
+                <button
+                    type="button"
+                    id="btnExcluirTreino"
+                    class="btn-danger"
+                    hidden
+                >
+                    Excluir
+                </button>
 
 
                 <button
                     type="submit"
-                    class="botao-principal"
+                    class="btn-primary"
                 >
                     Salvar treino
                 </button>
 
 
-            </form>
+            </div>
 
-        </div>
+
+        </form>
+
 
     </div>
 
+</div>
+
+
+
+<!-- =====================================================
+     MODAL EXERCÍCIO
+===================================================== -->
+
+<div
+    id="modalExercicio"
+    class="modal"
+    hidden
+>
+
+
+    <div
+        class="modal-overlay"
+        data-fechar-modal="exercicio"
+    ></div>
+
+
+    <div class="modal-card">
+
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <span class="secao-legenda">
+                    EXERCÍCIO
+                </span>
+
+                <h2 id="tituloModalExercicio">
+                    Novo exercício
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn-fechar"
+                data-fechar-modal="exercicio"
+            >
+                ×
+            </button>
+
+
+        </div>
+
+
+
+        <form id="formExercicio">
+
+
+            <input
+                type="hidden"
+                id="exercicioId"
+            >
+
+
+            <label>
+
+                Exercício
+
+                <input
+                    type="text"
+                    id="nomeExercicio"
+                    placeholder="Ex: Supino inclinado"
+                    maxlength="60"
+                    required
+                >
+
+            </label>
+
+
+
+            <div class="form-grid">
+
+
+                <label>
+
+                    Séries
+
+                    <input
+                        type="number"
+                        id="seriesExercicio"
+                        min="1"
+                        max="20"
+                        inputmode="numeric"
+                        value="3"
+                        required
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    Reps mín.
+
+                    <input
+                        type="number"
+                        id="repsMinExercicio"
+                        min="1"
+                        max="100"
+                        inputmode="numeric"
+                        value="8"
+                        required
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    Reps máx.
+
+                    <input
+                        type="number"
+                        id="repsMaxExercicio"
+                        min="1"
+                        max="100"
+                        inputmode="numeric"
+                        value="12"
+                        required
+                    >
+
+                </label>
+
+
+            </div>
+
+
+
+            <div class="form-grid form-grid-2">
+
+
+                <label>
+
+                    Carga atual (kg)
+
+                    <input
+                        type="number"
+                        id="cargaExercicio"
+                        min="0"
+                        step="0.5"
+                        inputmode="decimal"
+                        value="0"
+                        required
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    Progressão (kg)
+
+                    <input
+                        type="number"
+                        id="incrementoExercicio"
+                        min="0.5"
+                        step="0.5"
+                        inputmode="decimal"
+                        value="2.5"
+                        required
+                    >
+
+                </label>
+
+
+            </div>
+
+
+
+            <label>
+
+                Descanso (segundos)
+
+                <input
+                    type="number"
+                    id="descansoExercicio"
+                    min="0"
+                    max="600"
+                    inputmode="numeric"
+                    value="90"
+                    required
+                >
+
+            </label>
+
+
+
+            <label>
+
+                Observação
+
+                <textarea
+                    id="observacaoExercicio"
+                    placeholder="Ex: banco inclinado em 30°"
+                    maxlength="200"
+                    rows="3"
+                ></textarea>
+
+            </label>
+
+
+
+            <div class="modal-acoes">
+
+
+                <button
+                    type="button"
+                    id="btnExcluirExercicio"
+                    class="btn-danger"
+                    hidden
+                >
+                    Excluir
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Salvar exercício
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
 
 </div>
 
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    hidden
+></div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script
     type="module"

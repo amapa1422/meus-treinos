@@ -1,5 +1,23 @@
-import { initializeApp }
+/* =====================================================
+   FIREBASE - MEUS TREINOS
+===================================================== */
+
+
+/* =====================================================
+   FIREBASE APP
+===================================================== */
+
+import {
+    initializeApp,
+    getApps,
+    getApp
+}
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+/* =====================================================
+   FIREBASE AUTHENTICATION
+===================================================== */
 
 import {
     getAuth,
@@ -10,16 +28,51 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
+
+/* =====================================================
+   FIRESTORE
+===================================================== */
+
 import {
     getFirestore,
+
     collection,
     doc,
+
     setDoc,
+    updateDoc,
     deleteDoc,
-    onSnapshot
+
+    getDoc,
+    getDocs,
+
+    onSnapshot,
+
+    query,
+    orderBy,
+    limit,
+
+    serverTimestamp
 }
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+
+
+/* =====================================================
+   CONFIGURAÇÃO DO SEU FIREBASE
+===================================================== */
+
+/*
+    IMPORTANTE:
+
+    Substitua SOMENTE este firebaseConfig
+    pelo que aparece no Firebase Console:
+
+    Configurações do projeto
+    → Geral
+    → Seus apps
+    → Meus Treinos Web
+*/
 
 const firebaseConfig = {
   apiKey: "AIzaSyD1V3SMYQqvqrYsEFPPEXvvIbrOpFSES4M",
@@ -31,30 +84,91 @@ const firebaseConfig = {
 };
 
 
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+/*
+    Evita inicializar o Firebase duas vezes
+    caso o arquivo seja importado novamente.
+*/
+
 const app =
-    initializeApp(firebaseConfig);
+    getApps().length > 0
+        ? getApp()
+        : initializeApp(firebaseConfig);
+
+
+
+/* =====================================================
+   AUTH
+===================================================== */
 
 const auth =
     getAuth(app);
+
+
+
+/* =====================================================
+   FIRESTORE
+===================================================== */
 
 const db =
     getFirestore(app);
 
 
+
+/* =====================================================
+   EXPORTAÇÕES
+===================================================== */
+
 export {
 
+    /* APP */
+
+    app,
+
+
+    /* AUTH */
+
     auth,
-    db,
 
     createUserWithEmailAndPassword,
+
     signInWithEmailAndPassword,
+
     signOut,
+
     onAuthStateChanged,
 
+
+    /* FIRESTORE */
+
+    db,
+
     collection,
+
     doc,
+
     setDoc,
+
+    updateDoc,
+
     deleteDoc,
-    onSnapshot
+
+    getDoc,
+
+    getDocs,
+
+    onSnapshot,
+
+    query,
+
+    orderBy,
+
+    limit,
+
+    serverTimestamp
 
 };
