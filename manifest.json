@@ -1,0 +1,9 @@
+{
+    "name": "Meus Treinos",
+    "short_name": "Treinos",
+    "description": "Controle pessoal de treinos de academia",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#080c11",
+    "theme_color": "#090d12"
+}

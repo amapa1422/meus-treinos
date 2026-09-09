@@ -1,0 +1,922 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    --fundo: #080c11;
+
+    --card: #111720;
+
+    --card-secundario: #171f2a;
+
+    --borda: #263141;
+
+    --texto: #f8fafc;
+
+    --texto-secundario: #8894a5;
+
+    --verde: #22c55e;
+
+    --verde-escuro: #15803d;
+
+    --vermelho: #ef4444;
+
+    color-scheme: dark;
+}
+
+
+body {
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: var(--fundo);
+
+    color: var(--texto);
+
+    min-height: 100vh;
+
+    padding-bottom: 50px;
+}
+
+
+/* HEADER */
+
+header {
+
+    max-width: 760px;
+
+    margin: 16px auto 0;
+
+    background: #10161f;
+
+    border: 1px solid #1f2937;
+
+    border-radius: 28px;
+
+    padding:
+        calc(24px + env(safe-area-inset-top))
+        22px
+        24px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+header h1 {
+
+    font-size: 27px;
+}
+
+
+.subtitulo {
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.acoes-header {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.botao-header {
+
+    border: 1px solid #314052;
+
+    background: #182230;
+
+    color: white;
+
+    border-radius: 13px;
+
+    padding: 12px 16px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+
+.botao-header.destaque {
+
+    background: #e5e7eb;
+
+    color: #101318;
+}
+
+
+/* MAIN */
+
+main {
+
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: auto;
+
+    padding: 22px 16px;
+}
+
+
+/* HERO */
+
+.hero {
+
+    background:
+        radial-gradient(
+            circle at right top,
+            rgba(34,197,94,0.18),
+            transparent 45%
+        ),
+        #111720;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 24px;
+
+    padding: 28px 24px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero-label {
+
+    color: #4ade80;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.hero h2 {
+
+    font-size: 28px;
+
+    margin-top: 8px;
+}
+
+
+.hero p {
+
+    margin-top: 8px;
+
+    color: var(--texto-secundario);
+
+    line-height: 1.5;
+
+    max-width: 500px;
+}
+
+
+/* RESUMO */
+
+.resumo {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+.card-resumo {
+
+    background: var(--card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 20px;
+
+    padding: 22px;
+}
+
+
+.card-resumo span {
+
+    display: block;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.card-resumo strong {
+
+    font-size: 28px;
+}
+
+
+/* SEÇÃO */
+
+.titulo-secao {
+
+    margin: 30px 0 15px;
+}
+
+
+.titulo-secao h2 {
+
+    font-size: 21px;
+}
+
+
+.titulo-secao p {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: var(--texto-secundario);
+}
+
+
+/* TREINO */
+
+.treino-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--borda);
+
+    border-left: 5px solid var(--verde);
+
+    border-radius: 21px;
+
+    padding: 20px;
+
+    margin-bottom: 14px;
+}
+
+
+.treino-topo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+
+.treino-card h3 {
+
+    font-size: 20px;
+}
+
+
+.foco-treino {
+
+    margin-top: 4px;
+
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+}
+
+
+.badge-exercicios {
+
+    background: rgba(34,197,94,0.12);
+
+    border: 1px solid rgba(34,197,94,0.25);
+
+    color: #4ade80;
+
+    border-radius: 50px;
+
+    padding: 7px 10px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.exercicios-treino {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.exercicio-item {
+
+    background: var(--card-secundario);
+
+    border: 1px solid #222d3b;
+
+    border-radius: 14px;
+
+    padding: 13px 14px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+
+.exercicio-item strong {
+
+    display: block;
+
+    font-size: 14px;
+}
+
+
+.exercicio-item span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color: var(--texto-secundario);
+}
+
+
+.carga {
+
+    font-weight: 800;
+
+    color: #4ade80;
+
+    white-space: nowrap;
+}
+
+
+.acoes-treino {
+
+    margin-top: 16px;
+
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.acoes-treino button {
+
+    flex: 1;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 11px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+
+.btn-excluir {
+
+    background: #1a2430;
+
+    color: #f87171;
+}
+
+
+/* VAZIO */
+
+.vazio {
+
+    background: var(--card);
+
+    border: 1px dashed #334155;
+
+    color: var(--texto-secundario);
+
+    padding: 35px 20px;
+
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+
+/* MODAL */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.78);
+
+    backdrop-filter: blur(6px);
+
+    -webkit-backdrop-filter: blur(6px);
+
+    z-index: 3000;
+
+    align-items: flex-end;
+
+    justify-content: center;
+}
+
+
+.modal.ativo {
+
+    display: flex;
+}
+
+
+.modal-conteudo {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #10161f;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 28px 28px 0 0;
+
+    padding:
+        25px 20px
+        calc(30px + env(safe-area-inset-bottom));
+}
+
+
+.modal-topo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.modal-subtitulo {
+
+    font-size: 11px;
+
+    color: #4ade80;
+
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+
+.fechar {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: 1px solid #334155;
+
+    border-radius: 50%;
+
+    background: #18212c;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* FORM */
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: #dce2ea;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+input {
+
+    width: 100%;
+
+    background: #0c1219;
+
+    border: 1px solid #303c4c;
+
+    border-radius: 13px;
+
+    color: white;
+
+    padding: 14px;
+
+    font-size: 16px;
+}
+
+
+input::placeholder {
+
+    color: #647184;
+}
+
+
+input:focus {
+
+    outline: none;
+
+    border-color: #22c55e;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(34,197,94,0.1);
+}
+
+
+/* EXERCÍCIOS FORM */
+
+.cabecalho-exercicios {
+
+    margin-top: 7px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.cabecalho-exercicios h3 {
+
+    font-size: 17px;
+}
+
+
+.cabecalho-exercicios p {
+
+    font-size: 12px;
+
+    color: var(--texto-secundario);
+
+    margin-top: 3px;
+}
+
+
+.cabecalho-exercicios button {
+
+    background: #18222d;
+
+    border: 1px solid #324052;
+
+    color: white;
+
+    border-radius: 12px;
+
+    padding: 10px 12px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+
+.exercicio-form {
+
+    background: #151d27;
+
+    border: 1px solid #283545;
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+}
+
+
+.exercicio-form-topo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+
+.exercicio-form-topo strong {
+
+    font-size: 14px;
+}
+
+
+.remover-exercicio {
+
+    border: none;
+
+    background: transparent;
+
+    color: #f87171;
+
+    cursor: pointer;
+
+    font-weight: 700;
+}
+
+
+.linha-exercicio {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 9px;
+}
+
+
+.linha-exercicio input {
+
+    font-size: 14px;
+
+    padding: 12px 10px;
+}
+
+
+.botao-principal {
+
+    border: none;
+
+    background: #22c55e;
+
+    color: #06120a;
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* LOGIN */
+
+.tela-login {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #17251f,
+            #090d12 50%
+        );
+}
+
+
+.login-box {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding: 35px 25px;
+
+    background: #111720;
+
+    border: 1px solid #283545;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.5);
+}
+
+
+.login-logo {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #1e382a;
+
+    border: 1px solid #2d6842;
+
+    border-radius: 22px;
+
+    font-size: 31px;
+}
+
+
+.login-box h1 {
+
+    font-size: 28px;
+}
+
+
+.login-box > p {
+
+    color: var(--texto-secundario);
+
+    line-height: 1.5;
+
+    margin:
+        8px 0
+        24px;
+}
+
+
+.login-box form {
+
+    gap: 11px;
+}
+
+
+.login-box form button {
+
+    height: 52px;
+
+    border: none;
+
+    background: #22c55e;
+
+    color: #06120a;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+.btn-secundario {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    height: 50px;
+
+    background: #17202b;
+
+    border: 1px solid #334155;
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.mensagem-login {
+
+    margin-top: 14px !important;
+
+    color: #f87171 !important;
+
+    font-size: 12px !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 550px) {
+
+    header {
+
+        margin-top: 0;
+
+        border-radius: 0 0 25px 25px;
+    }
+
+
+    header h1 {
+
+        font-size: 22px;
+    }
+
+
+    .botao-header {
+
+        padding: 10px 11px;
+
+        font-size: 12px;
+    }
+
+
+    .hero h2 {
+
+        font-size: 24px;
+    }
+
+
+    .linha-exercicio {
+
+        grid-template-columns: 1fr;
+    }
+
+}

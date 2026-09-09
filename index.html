@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#090d12">
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Meus Treinos"
+    >
+
+    <title>Meus Treinos</title>
+
+    <link
+        rel="manifest"
+        href="./manifest.json"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- LOGIN -->
+
+<div
+    id="telaLogin"
+    class="tela-login"
+>
+
+    <div class="login-box">
+
+        <div class="login-logo">
+            🏋️
+        </div>
+
+        <h1>Meus Treinos</h1>
+
+        <p>
+            Organize seus treinos e acompanhe
+            sua evolução.
+        </p>
+
+        <form id="formLogin">
+
+            <input
+                type="email"
+                id="emailLogin"
+                placeholder="Seu e-mail"
+                autocomplete="email"
+                required
+            >
+
+            <input
+                type="password"
+                id="senhaLogin"
+                placeholder="Sua senha"
+                autocomplete="current-password"
+                minlength="6"
+                required
+            >
+
+            <button type="submit">
+                Entrar
+            </button>
+
+        </form>
+
+        <button
+            type="button"
+            id="btnCriarConta"
+            class="btn-secundario"
+        >
+            Criar nova conta
+        </button>
+
+        <p
+            id="mensagemLogin"
+            class="mensagem-login"
+        ></p>
+
+    </div>
+
+</div>
+
+
+
+<!-- APP -->
+
+<div
+    id="aplicativo"
+    style="display:none;"
+>
+
+
+    <header>
+
+        <div>
+
+            <p class="subtitulo">
+                Academia
+            </p>
+
+            <h1>
+                Meus Treinos
+            </h1>
+
+        </div>
+
+
+        <div class="acoes-header">
+
+            <button
+                id="btnSair"
+                class="botao-header"
+            >
+                Sair
+            </button>
+
+            <button
+                id="btnNovoTreino"
+                class="botao-header destaque"
+            >
+                + Treino
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- DESTAQUE -->
+
+        <section class="hero">
+
+            <span class="hero-label">
+                SEUS TREINOS
+            </span>
+
+            <h2>
+                Pronto para treinar?
+            </h2>
+
+            <p>
+                Monte sua ficha e acompanhe
+                suas cargas ao longo do tempo.
+            </p>
+
+        </section>
+
+
+
+        <!-- RESUMO -->
+
+        <section class="resumo">
+
+            <div class="card-resumo">
+
+                <span>
+                    Treinos cadastrados
+                </span>
+
+                <strong id="totalTreinos">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="card-resumo">
+
+                <span>
+                    Exercícios
+                </span>
+
+                <strong id="totalExercicios">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TREINOS -->
+
+        <section class="titulo-secao">
+
+            <div>
+
+                <h2>
+                    Meus treinos
+                </h2>
+
+                <p>
+                    Suas fichas de academia
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="listaTreinos">
+
+            <div class="vazio">
+
+                Você ainda não cadastrou
+                nenhum treino.
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- MODAL NOVO TREINO -->
+
+    <div
+        id="modalTreino"
+        class="modal"
+    >
+
+        <div class="modal-conteudo">
+
+
+            <div class="modal-topo">
+
+                <div>
+
+                    <p class="modal-subtitulo">
+                        NOVA FICHA
+                    </p>
+
+                    <h2>
+                        Criar treino
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="fechar"
+                    id="fecharModalTreino"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="formTreino">
+
+
+                <label>
+
+                    Nome do treino
+
+                    <input
+                        type="text"
+                        id="nomeTreino"
+                        placeholder="Ex: Treino A"
+                        maxlength="40"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+
+                    Foco do treino
+
+                    <input
+                        type="text"
+                        id="focoTreino"
+                        placeholder="Ex: Peito, ombro e tríceps"
+                        maxlength="80"
+                        required
+                    >
+
+                </label>
+
+
+
+                <div class="cabecalho-exercicios">
+
+                    <div>
+
+                        <h3>
+                            Exercícios
+                        </h3>
+
+                        <p>
+                            Monte sua ficha
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="btnAdicionarExercicio"
+                    >
+                        + Exercício
+                    </button>
+
+                </div>
+
+
+                <div id="listaExerciciosForm">
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="botao-principal"
+                >
+                    Salvar treino
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script
+    type="module"
+    src="./app.js"
+></script>
+
+
+</body>
+
+</html>
